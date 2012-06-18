@@ -53,7 +53,8 @@ sub parse_netstat {
         if ($line =~ /^tcp/ && $tcp) {
             #Proto Recv-Q Send-Q Local Address               Foreign Address             State       PID/Program name
             #tcp        0      0 0.0.0.0:8898                0.0.0.0:*                   LISTEN      5566/daemon2.pl [pa
-            $line =~ m!^(?<proto>tcp) \s+ (?<recvq>\d+) \s+ (?<sendq>\d+)\s+
+            #tcp6       0      0 [::]:ssh                [::]:*                  LISTEN      -
+            $line =~ m!^(?<proto>tcp6?) \s+ (?<recvq>\d+) \s+ (?<sendq>\d+)\s+
                        (?<local_host>\S+?):(?<local_port>\w+)\s+
                        (?<foreign_host>\S+?):(?<foreign_port>\w+|\*)\s+
                        (?<state>\S+) (?: \s+ (?:
