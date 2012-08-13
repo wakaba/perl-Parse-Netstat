@@ -65,7 +65,7 @@ sub parse_netstat {
             %k = %+;
         } elsif ($line =~ /^udp/ && $udp) {
             #udp        0      0 0.0.0.0:631                 0.0.0.0:*                               2769/cupsd
-            $line =~ m!^(?<proto>udp) \s+ (?<recvq>\d+) \s+ (?<sendq>\d+)\s+
+            $line =~ m!^(?<proto>udp6?) \s+ (?<recvq>\d+) \s+ (?<sendq>\d+)\s+
                        (?<local_host>\S+?):(?<local_port>\w+)\s+
                        (?<foreign_host>\S+?):(?<foreign_port>\w+|\*)\s+
                        (?: \s+ (?:
